@@ -1,0 +1,21 @@
+#WRITTEN IN PINE SCRIPT
+strategy("formula #2", overlay=true)
+
+//variable setting
+[middle, upper, lower] = ta.bb(close, 3, 1)
+buysig = ta.crossover(close, lower)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+sellsig = ta.crossover(close, upper)
+sellsig2 = ta.crossover(ta.sar(0.04,0.04,0.4), close)
+sellsig3 = ta.crossover(ta.sar(0.03,0.03,0.3), close)
+//conditional
+if (buysig)
+    strategy.entry("buy", strategy.long, 2)
+if (sellsig and sellsig2)
+    strategy.entry("sell", strategy.short, 2)
+if (sellsig and sellsig3)
+    strategy.entry("sell2", strategy.short, 2)
+//input plotting
+plot(middle, color=color.yellow)
+plot(upper,color=color.red)
+plot(lower,color=color.green)
+plot(ta.sar(0.03,0.03,0.3), color=color.gray)
